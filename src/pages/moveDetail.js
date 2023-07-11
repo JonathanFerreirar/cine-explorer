@@ -1,11 +1,11 @@
 import Image from "next/image";
 import style from "@/styles/home.module.css";
 
-const MovelDetail = () => {
+const MoveDetail = () => {
   return (
     <div
-      className={`mt-5 d-flex gap-5 align-items-center align-items-center ${style.movelDetailsResponsivines}`}
-      style={{ width: "100vw", height: "70vh" }}
+      className={`d-flex gap-5 align-items-center align-items-center ${style.movelDetailsResponsivines}`}
+      style={{ width: "100vw", height: "100vh" }}
     >
       <div
         style={{
@@ -22,11 +22,11 @@ const MovelDetail = () => {
           alt="Uzumaki Naruto"
         />
       </div>
-      <div className="" style={{ width: "100vw" }}>
+      <div className={`${style.movelDetailsResponsivinesText}`}>
         <h5 className="">Sobrenatural: A Última Chave (2018)</h5>
         <p>01/18/2018 - Terro</p>
 
-        <p className={`${style.movelDetailsResponsivinesText}`}>
+        <p>
           A Doutora Elise Rainier é chamada para resolver o caso de uma
           assombração no Novo México, localizada justamente na casa em que ela
           passou a infância. Enquanto tenta resolver o caso do morador de sua
@@ -43,4 +43,4 @@ const MovelDetail = () => {
   );
 };
 
-export default MovelDetail;
+export default MoveDetail;
