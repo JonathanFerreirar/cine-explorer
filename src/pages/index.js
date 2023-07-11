@@ -11,6 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`main`}>
+        <h1 className="mt-4 text-center"> Populares 2023 </h1>
         <div className={style.cardContainer}>
           <CardMovies />
           <CardMovies />
