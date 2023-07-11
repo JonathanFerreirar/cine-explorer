@@ -1,6 +1,6 @@
 import Head from "next/head";
-import { CardVideos } from "@/components/cardVideos";
-
+import { CardMovies } from "@/components/cardMovies";
+import style from "@/styles/home.module.css";
 export default function Home() {
   return (
     <>
@@ -11,8 +11,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`main`}>
-        <h1>Start app</h1>
-        <CardVideos />
+        <div className={style.cardContainer}>
+          <CardMovies />
+          <CardMovies />
+          <CardMovies />
+          <CardMovies />
+          <CardMovies />
+          <CardMovies />
+          <CardMovies />
+          <CardMovies />
+        </div>
       </main>
     </>
   );
