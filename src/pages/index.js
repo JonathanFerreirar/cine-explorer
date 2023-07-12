@@ -1,39 +1,16 @@
 import Head from "next/head";
 import { CardFilm } from "@/components/cardFilm";
 import style from "@/styles/home.module.css";
-import axios from "axios";
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { filmContext } from "@/context/film-contexct";
 
-export const getServerSideProps = async () => {
-  const url = "https://api.themoviedb.org/3/movie/popular";
+export default function Home() {
+  const { data, getFilm } = useContext(filmContext);
+  useEffect(() => {
+    getFilm();
+  }, [getFilm]);
 
-  const config = {
-    headers: {
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMzRlYWNiYmM1YmY3YzkzYmI5MDZkMTlkZWY2NWI1YiIsInN1YiI6IjY0YWNhN2I1M2UyZWM4MDBjYmNmMjczZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.maMoeOYRoxeMx3POTZo1zRDvS2KEFpb0a7rlK5EvaUM",
-    },
-  };
-
-  try {
-    const response = await axios.get(url, config);
-    const popularMovies = response.data.results;
-
-    return { props: { popularMovies } };
-  } catch (error) {
-    console.log("My erro is", error);
-
-    return {
-      props: {
-        popularMovies:
-          "Ocorreu um erro interno no servidor, por favor tente novamente mais tarde",
-      },
-    };
-  }
-};
-
-export default function Home({ popularMovies }) {
   return (
     <>
       <Head>
@@ -45,7 +22,7 @@ export default function Home({ popularMovies }) {
       <main className={`main`}>
         <h1 className="mt-4 text-center"> Populares 2023 </h1>
         <div className={style.cardContainer}>
-          {popularMovies.map((film) => {
+          {data?.map((film) => {
             const baseUrl = "https://image.tmdb.org/t/p/w500/";
             const fullUrl = baseUrl + film.backdrop_path;
 
@@ -68,5 +45,5 @@ export default function Home({ popularMovies }) {
 }
 
 //Query //https://api.themoviedb.org/3/search/movie?query=naruto&include_adult=false&language=en-US&page=1
-//Popular // https://api.themoviedb.org/3/person/popular?language=en-US&page=1
+//Popular // "https://api.themoviedb.org/3/movie/popular";
 // By id //https://api.themoviedb.org/3/movie/{id}
