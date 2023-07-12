@@ -1,7 +1,15 @@
 import Head from "next/head";
 import { CardFilme } from "@/components/cardFilme";
 import style from "@/styles/home.module.css";
+import axios from "axios";
 export default function Home() {
+  const url =
+    "https://api.themoviedb.org/3/person/popular?language=en-US&page=1";
+
+  const getPopularMovies = () => {
+    axios.get(url);
+  };
+
   return (
     <>
       <Head>
@@ -26,3 +34,6 @@ export default function Home() {
     </>
   );
 }
+
+//Query //https://api.themoviedb.org/3/search/movie?query=naruto&include_adult=false&language=en-US&page=1
+//Popular // https://api.themoviedb.org/3/person/popular?language=en-US&page=1
