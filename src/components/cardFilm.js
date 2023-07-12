@@ -1,7 +1,9 @@
 import Image from "next/image";
 import style from "@/styles/home.module.css";
 
-export const CardFilme = () => {
+export const CardFilm = ({ filmName, filmDate, filmRate, filmImg }) => {
+  const imageUrl = filmImg;
+  console.log("imgaeUrl", imageUrl);
   return (
     <button
       className={`buttonCardItem ${style.buttonCardItem}`}
@@ -16,23 +18,23 @@ export const CardFilme = () => {
         <div style={{ position: "relative", width: "15rem", height: "300px" }}>
           <Image
             style={{ objectFit: "cover" }}
-            src="/Naruto.jpg"
+            src={imageUrl}
             fill
-            alt="Uzumaki Naruto"
+            alt={filmName}
           />
         </div>
 
         <div className="card-body">
           <h5 className="card-title" style={{ fontSize: "16px" }}>
-            Uzumaki Naruto the last of us
+            {filmName}
           </h5>
           <div className="flex align-items-center align-items-center">
             <p className="card-text" style={{ fontSize: "14px" }}>
-              Released: 07-10-2023
+              Released: {filmDate}
             </p>
 
             <p className="text-muted" style={{ fontSize: "11px" }}>
-              Classification: 5.0
+              Classification: {filmRate}
             </p>
           </div>
         </div>
