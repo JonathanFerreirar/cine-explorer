@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { CardMovies } from "@/components/cardMovies";
+import { CardFilme } from "@/components/cardFilme";
 import style from "@/styles/home.module.css";
 export default function Home() {
   return (
@@ -13,14 +13,14 @@ export default function Home() {
       <main className={`main`}>
         <h1 className="mt-4 text-center"> Populares 2023 </h1>
         <div className={style.cardContainer}>
-          <CardMovies />
-          <CardMovies />
-          <CardMovies />
-          <CardMovies />
-          <CardMovies />
-          <CardMovies />
-          <CardMovies />
-          <CardMovies />
+          <CardFilme />
+          <CardFilme />
+          <CardFilme />
+          <CardFilme />
+          <CardFilme />
+          <CardFilme />
+          <CardFilme />
+          <CardFilme />
         </div>
       </main>
     </>

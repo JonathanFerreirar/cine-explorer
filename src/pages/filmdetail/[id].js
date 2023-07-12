@@ -1,7 +1,11 @@
 import Image from "next/image";
 import style from "@/styles/home.module.css";
+import { useRouter } from "next/router";
 
 const MoveDetail = () => {
+  const router = useRouter();
+
+  console.log(router.query.id);
   return (
     <div
       className={`d-flex gap-5 align-items-center align-items-center ${style.movelDetailsResponsivines}`}

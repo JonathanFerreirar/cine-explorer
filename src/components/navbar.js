@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-import { SearchMovie } from "./SearchMovie";
+import { SearchFilm } from "./searchFilm";
 
 export const Navbar = () => {
   return (
@@ -27,7 +27,7 @@ export const Navbar = () => {
         </a>
 
         <div style={{ margin: "0 auto" }}>
-          <SearchMovie />
+          <SearchFilm />
         </div>
       </div>
     </nav>

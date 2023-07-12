@@ -1,7 +1,7 @@
 import Image from "next/image";
 import style from "@/styles/home.module.css";
 
-export const CardMovies = () => {
+export const CardFilme = () => {
   return (
     <button
       className={`buttonCardItem ${style.buttonCardItem}`}

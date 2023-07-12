@@ -1,6 +1,6 @@
 import React from "react";
 
-export const SearchMovie = () => {
+export const SearchFilm = () => {
   return (
     <form className="d-flex" role="search" style={{ minWidth: "60vw" }}>
       <input
