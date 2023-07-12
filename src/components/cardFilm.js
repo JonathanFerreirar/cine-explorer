@@ -1,9 +1,10 @@
 import Image from "next/image";
 import style from "@/styles/home.module.css";
+import { useContext } from "react";
+import { filmContext } from "@/context/film-contexct";
 
-export const CardFilm = ({ filmName, filmDate, filmRate, filmImg }) => {
-  const imageUrl = filmImg;
-  console.log("imgaeUrl", imageUrl);
+export const CardFilm = ({ filmName, filmDate, filmRate, filmImg, id }) => {
+  const { idFilm, setIdFilm } = useContext(filmContext);
   return (
     <button
       className={`buttonCardItem ${style.buttonCardItem}`}
@@ -13,12 +14,16 @@ export const CardFilm = ({ filmName, filmDate, filmRate, filmImg }) => {
         background: "none",
         transitionDuration: "0.3s",
       }}
+      onClick={() => {
+        setIdFilm(id);
+        console.log(idFilm);
+      }}
     >
       <div className="card" style={{ width: "15rem", height: "400px" }}>
         <div style={{ position: "relative", width: "15rem", height: "300px" }}>
           <Image
             style={{ objectFit: "cover" }}
-            src={imageUrl}
+            src={filmImg}
             fill
             alt={filmName}
           />

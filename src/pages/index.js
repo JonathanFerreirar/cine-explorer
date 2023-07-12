@@ -3,9 +3,11 @@ import { CardFilm } from "@/components/cardFilm";
 import style from "@/styles/home.module.css";
 import axios from "axios";
 
+import { useContext } from "react";
+import { filmContext } from "@/context/film-contexct";
+
 export const getServerSideProps = async () => {
-  const url =
-    "https://api.themoviedb.org/3/person/popular?language=en-US&page=1";
+  const url = "https://api.themoviedb.org/3/movie/popular";
 
   const config = {
     headers: {
@@ -44,17 +46,17 @@ export default function Home({ popularMovies }) {
         <h1 className="mt-4 text-center"> Populares 2023 </h1>
         <div className={style.cardContainer}>
           {popularMovies.map((film) => {
-            const movie = film.known_for[0];
-            const baseUrl = "https://image.tmdb.org/t/p/w500";
-            const fullUrl = baseUrl + movie.backdrop_path;
+            const baseUrl = "https://image.tmdb.org/t/p/w500/";
+            const fullUrl = baseUrl + film.backdrop_path;
 
             return (
               <div key={film.id}>
                 <CardFilm
                   filmImg={fullUrl}
-                  filmName={movie.name || movie.title}
-                  filmDate={movie.first_air_date || movie.release_date}
-                  filmRate={movie.vote_average}
+                  filmName={film.title}
+                  filmDate={film.release_date}
+                  filmRate={film.vote_average}
+                  id={film.id}
                 />
               </div>
             );
@@ -67,3 +69,4 @@ export default function Home({ popularMovies }) {
 
 //Query //https://api.themoviedb.org/3/search/movie?query=naruto&include_adult=false&language=en-US&page=1
 //Popular // https://api.themoviedb.org/3/person/popular?language=en-US&page=1
+// By id //https://api.themoviedb.org/3/movie/{id}

@@ -1,7 +1,19 @@
-import { createContext } from "react";
+import axios from "axios";
+import { createContext, useState } from "react";
 
-const filmContext = createContext();
+export const filmContext = createContext();
 
-export const FilmContexct = ({ children }) => {
-  return <div>{children}</div>;
+export const ProviderFilm = ({ children }) => {
+  const nome = "Jonathan";
+
+  const [idFilm, setIdFilm] = useState(0);
+
+  const valueShare = {
+    setIdFilm,
+    idFilm,
+  };
+
+  return (
+    <filmContext.Provider value={valueShare}>{children}</filmContext.Provider>
+  );
 };
