@@ -1,6 +1,6 @@
 
-<h2>Deploy:  https://techlong.vercel.app/</h1>
-<img width="100%" alt="TechLong" src="https://github.com/JonathanFerreirar/store-TechLong/assets/107007377/f659648a-f7d3-4113-ac15-90bf435c0aa9" />
+<h2>Deploy:  https://cine-explorer-jhowf.vercel.app/</h1>
+<img width="100%" alt="TechLong" src="https://github.com/JonathanFerreirar/cine-explorer/assets/107007377/b9adfab6-7627-4a0f-a40e-b97d21e57945" />
 
 <h2>Project Title</h2>
 
@@ -13,15 +13,13 @@ It was a chalenge sent to me for a company to test my habilitis, this aplication
 
 <h3>Keep data</h3>
 
-<p>When the user reload the page, the web-site losing the current movie data, giving to a user a wrong in your face.</p>
+<p>When the user reloaded the page, the web-site losed the current movie data, giving to user a fake error.</p>
 
 <h3>How i solve</h3>
 <p>
     
 The best solution to this problem was not to depend of a State to recived the id of the movie and so use the pathname property present on the useRouter() hook.
 </p>
-
-<h2>Improvements I could have made</h2>
 
 
 <h2>Installation </h2>
@@ -30,8 +28,8 @@ To run the project locally, follow these steps:
 
     Clone the repository: git clone [repository URL]
     Open the project folder in your preferred code editor.
-    Run: npm install
-    Run: npm run dev
+    On terminal run: npm install
+    After run: npm run dev
 
 <h2>Usage</h2>
 
