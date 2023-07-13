@@ -1,22 +1,16 @@
 import { api, options } from "@/api";
 import { createContext, useCallback, useState } from "react";
 
-import { useRouter } from "next/navigation";
-
 export const filmContext = createContext();
 
 export const ProviderFilm = ({ children }) => {
-  const [idFilm, setIdFilm] = useState(0); //Present on cartFilm component
-  const router = useRouter();
-
   const [searchFilm, setSearchFilm] = useState("");
-
-  //Run when you init the aplication or when you click in logo on the Navbar component
 
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [title, setTitle] = useState("");
 
+  //Run when you init the aplication or when you click in logo on the Navbar component
   const getFilm = useCallback(async () => {
     try {
       if (!searchFilm) {
@@ -37,47 +31,56 @@ export const ProviderFilm = ({ children }) => {
   }, []);
 
   //Just run when you submit your search in Navbar component
-
   const getSearch = useCallback(async () => {
     try {
-      setLoading(false);
-      const response = await api.get(
-        `search/movie?query=${searchFilm}`,
-        options
-      );
-      setLoading(true);
-
-      if (response.data.results.length) {
-        setData(response.data.results);
-        setTitle(searchFilm);
+      if (!searchFilm) {
+        //Check if user type something in searchFilm
+        getFilm();
       } else {
-        alert("Sorry we don't find this film in our data base");
+        setLoading(false);
+        const response = await api.get(
+          `search/movie?query=${searchFilm}`,
+          options
+        );
+        setLoading(true);
+
+        if (response.data.results.length) {
+          //Only change te tittle and the moveis if it found a result for this search
+          setData(response.data.results);
+          setTitle(searchFilm);
+        } else {
+          throw new error();
+        }
+
+        setLoading(true);
       }
-      setLoading(true);
     } catch (error) {
       console.log(error);
-      alert("Something went wrong. Please try again more late.");
+      alert("Sorry we don't find this film in our data base");
     }
   }, [searchFilm]);
 
   const [film, setFilm] = useState([]);
 
-  const getFilmByID = useCallback(async () => {
+  //Just run when you click in a cardFilm component
+  const getFilmByID = useCallback(async (filmID) => {
     try {
+      setLoading(false);
       const response = await api.get(
-        `https://api.themoviedb.org/3/movie/${idFilm}`,
+        `https://api.themoviedb.org/3/movie/${filmID}`,
         options
       );
       setFilm(response.data);
-      console.log(response.data);
+      setLoading(true);
     } catch (error) {
-      console.log(error);
-      alert("Something went wrong. Please try again more late.");
+      if (filmID) {
+        console.log(error);
+        alert("Something went wrong. Please try again more late.");
+      }
     }
-  }, [idFilm]);
+  }, []);
 
   const valueShare = {
-    idFilm,
     data,
     loading,
     title,
@@ -85,7 +88,6 @@ export const ProviderFilm = ({ children }) => {
     film,
     getFilm,
     getSearch,
-    setIdFilm,
     setSearchFilm,
     setData,
     getFilmByID,

@@ -12,7 +12,6 @@ export default function Home() {
   }, [getFilm]);
 
   if (!loading) {
-    console.log(loading);
     return (
       <div className={style.cardContainer}>
         <div className="spinner-grow text-dark" role="status">

@@ -1,11 +1,9 @@
 import Image from "next/image";
 import style from "@/styles/home.module.css";
-import { useContext } from "react";
-import { filmContext } from "@/context/film-contexct";
+
 import Link from "next/link";
 
 export const CardFilm = ({ filmName, filmDate, filmRate, filmImg, id }) => {
-  const { setIdFilm } = useContext(filmContext);
   return (
     <Link
       className={`buttonCardItem ${style.buttonCardItem}`}
@@ -15,10 +13,7 @@ export const CardFilm = ({ filmName, filmDate, filmRate, filmImg, id }) => {
         background: "none",
         transitionDuration: "0.3s",
       }}
-      onClick={() => {
-        setIdFilm(id);
-      }}
-      href="/filmdetail/film"
+      href={`/filmdetail/${id}`}
     >
       <div className="card" style={{ width: "15rem", height: "400px" }}>
         <div style={{ position: "relative", width: "15rem", height: "300px" }}>

@@ -3,31 +3,25 @@ import style from "@/styles/home.module.css";
 
 import { useContext, useEffect } from "react";
 import { filmContext } from "@/context/film-contexct";
-import { api, options } from "@/api";
+import { useRouter } from "next/router";
 
 const MoveDetail = () => {
-  const { idFilm, film, getFilmByID } = useContext(filmContext);
-
-  // console.log(idFilm);
-  // console.log(router.query.id);
-
-  // const getSearch = async () => {
-  //   try {
-  //     const response = await api.get(
-  //       `https://api.themoviedb.org/3/movie/${idFilm}`,
-  //       options
-  //     );
-
-  //     console.log(response.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //     alert("Something went wrong. Please try again more late.");
-  //   }
-  // };
+  const { film, getFilmByID, loading } = useContext(filmContext);
+  const { query } = useRouter();
 
   useEffect(() => {
-    getFilmByID();
-  }, []);
+    getFilmByID(query.film);
+  }, [query, getFilmByID]);
+
+  if (!loading) {
+    return (
+      <div className={style.cardContainer}>
+        <div className="spinner-grow text-dark" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div

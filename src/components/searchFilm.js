@@ -7,11 +7,9 @@ export const SearchFilm = () => {
   const { searchFilm, setSearchFilm, getSearch } = useContext(filmContext);
   const { push, pathname } = useRouter();
 
-  //console.log("Router", router);
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (pathname == "/filmdetail/film") {
+    if (pathname == `/filmdetail/[film]`) {
       push("/");
 
       setTimeout(() => {
