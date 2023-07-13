@@ -1,14 +1,27 @@
 import { useContext } from "react";
 
 import { filmContext } from "@/context/film-contexct";
+import { useRouter } from "next/router";
 
 export const SearchFilm = () => {
   const { searchFilm, setSearchFilm, getSearch } = useContext(filmContext);
+  const { push, pathname } = useRouter();
+
+  //console.log("Router", router);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    getSearch();
-    setSearchFilm("");
+    if (pathname == "/filmdetail/film") {
+      push("/");
+
+      setTimeout(() => {
+        getSearch();
+        setSearchFilm("");
+      }, 300);
+    } else {
+      getSearch();
+      setSearchFilm("");
+    }
   };
 
   return (
