@@ -8,7 +8,7 @@
 
 <h2>Description</h2>
 
-It was a chalenge sent to me for a company to test my habilitis, this aplications consume tha api from the TMBD (The Movie Database) is a incrible api that you can use the build incrible projects. The website features a responsive design and utilizes popular web technologies such as HTML, CSS, JavaScript, react, BootStrap, Axios, React-icons, Api-Context. The user interface includes a navigation bar, home section and a details section. 
+It was a chalenge sent to me for a company to test my habilitis, this aplications consume tha api from the TMBD (The Movie Database) is a incrible api that you can use the build incrible projects. The website features a responsive design and utilizes popular web technologies such as HTML, CSS, JavaScript, NextJS, BootStrap, Axios, React-icons, Api-Context. The user interface includes a navigation bar, home section and a details section. 
 <h2>Main difficulties</h2>
 
 <h3>Keep data</h3>
