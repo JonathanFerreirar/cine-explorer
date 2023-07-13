@@ -10,8 +10,11 @@ export const ProviderFilm = ({ children }) => {
   const [data, setData] = useState([]);
   const [searchFilm, setSearchFilm] = useState("");
 
+  const [title, setTitle] = useState("");
+
   const getFilm = useCallback(async () => {
     try {
+      setTitle("POPULARES");
       setLoading(false);
       const response = await api.get(
         "movie/popular?language=en-US&page=1",
@@ -34,8 +37,10 @@ export const ProviderFilm = ({ children }) => {
         options
       );
       setLoading(true);
+
       if (response.data.results.length) {
         setData(response.data.results);
+        setTitle(searchFilm);
       } else {
         alert("Sorry we don't find this film in our data base");
       }
@@ -51,14 +56,15 @@ export const ProviderFilm = ({ children }) => {
   };
 
   const valueShare = {
-    getFilm,
-    getSearch,
-    setIdFilm,
-    searchFilm,
-    setSearchFilm,
     idFilm,
     data,
     loading,
+    title,
+    searchFilm,
+    getFilm,
+    getSearch,
+    setIdFilm,
+    setSearchFilm,
     setData,
   };
 

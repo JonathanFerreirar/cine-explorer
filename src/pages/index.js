@@ -6,14 +6,20 @@ import { useContext, useEffect } from "react";
 import { filmContext } from "@/context/film-contexct";
 
 export default function Home() {
-  const { data, getFilm, loading } = useContext(filmContext);
+  const { data, getFilm, loading, title } = useContext(filmContext);
   useEffect(() => {
     getFilm();
   }, [getFilm]);
 
   if (!loading) {
     console.log(loading);
-    return <h1>Loading....</h1>;
+    return (
+      <div className={style.cardContainer}>
+        <div className="spinner-grow text-dark" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -25,7 +31,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`main`}>
-        <h1 className="mt-4 text-center"> Populares 2023 </h1>
+        <h1 className="mt-4 text-center"> {title} </h1>
         <div className={style.cardContainer}>
           {data?.map((film) => {
             const baseUrl = "https://image.tmdb.org/t/p/w500/";
