@@ -32,7 +32,7 @@ const MoveDetail = () => {
         />
       </div>
       <div className="filmText">
-        <h3 className="">{film.title}</h3>
+        <h3>{film.title}</h3>
         <p className="d-flex gap-1">
           01/18/2018 -{" "}
           {film.genres?.map((gen) => {

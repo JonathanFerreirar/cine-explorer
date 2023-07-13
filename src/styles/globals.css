@@ -15,11 +15,12 @@ a {
   align-items: center;
   justify-content: center;
   @media (max-width: 750px) {
-    flex-direction: column !important;
+    display: block;
+    /* flex-direction: column !important; */
     margin-top: 40px !important;
 
-    justify-content: center !important;
-    align-items: center;
+    /* justify-content: center !important;
+    align-items: center; */
   }
 }
 
@@ -66,7 +67,6 @@ a {
 .filmText {
   text-align: justify;
   width: 90vw;
-  color: brown;
   margin-right: 50px;
 
   @media (max-width: 750px) {
