@@ -3,24 +3,7 @@
 a {
   text-decoration: none !important;
   font-family: "Poppins", sans-serif;
-  box-sizing: border-box;
-}
-
-.filmResponsivines {
-  width: 100vw;
-  height: 100vh;
-  margin-top: -100px;
-  display: flex;
-  gap: 25px;
-  align-items: center;
-  justify-content: center;
-  @media (max-width: 750px) {
-    flex-direction: column !important;
-    margin-top: 40px !important;
-
-    justify-content: center !important;
-    align-items: center;
-  }
+  color: "#000";
 }
 
 .cardContainer {
@@ -39,37 +22,53 @@ a {
 .buttonCardDiv {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+.filmResponsivines {
+  margin-top: -100px;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+}
 
 .filmDivImg {
   width: 60vw;
   height: 500px;
   position: relative;
   margin-left: 20px;
-
-  @media (max-width: 750px) {
-    width: 100vw !important;
-    margin: 0 auto;
-  }
 }
 
 .filmImg {
   object-fit: cover;
   border-radius: 12px;
-
-  @media (max-width: 750px) {
-    width: 90vw !important;
-
-    margin: 0 auto;
-  }
 }
 
 .filmText {
   text-align: justify;
   width: 90vw;
-  margin-right: 50px;
 
-  @media (max-width: 750px) {
+  margin-right: 50px;
+}
+
+@media (max-width: 750px) {
+  .filmResponsivines {
+    margin-top: 40px !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center;
+  }
+
+  .filmImg {
+    width: 90vw !important;
+
+    margin: 0 auto;
+  }
+  .filmText {
     margin: 0 auto;
     font-size: 13px;
+  }
+
+  .filmDivImg {
+    width: 100% !important;
+    margin: 0 auto;
   }
 }

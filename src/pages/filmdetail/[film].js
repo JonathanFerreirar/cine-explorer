@@ -31,10 +31,11 @@ const MoveDetail = () => {
           alt={film.title}
         />
       </div>
+
       <div className="filmText">
         <h3>{film.title}</h3>
+        <p>01/18/2018</p>
         <p className="d-flex gap-1">
-          01/18/2018 -{" "}
           {film.genres?.map((gen) => {
             return <span key={gen.id}>{gen.name} | </span>;
           })}
