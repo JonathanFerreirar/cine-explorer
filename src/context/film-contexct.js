@@ -17,10 +17,7 @@ export const ProviderFilm = ({ children }) => {
       if (!searchFilm) {
         setTitle("POPULAR");
         setLoading(false);
-        const response = await api.get(
-          "movie/popular?language=en-US&page=2",
-          options
-        );
+        const response = await api.get("movie/popular?language=en", options);
 
         setData(response.data.results);
         setLoading(true);

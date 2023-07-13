@@ -1,5 +1,3 @@
-import style from "@/styles/global.module.css";
-
 import { useEffect } from "react";
 import { GiFilmProjector } from "react-icons/gi";
 
@@ -54,7 +52,7 @@ export default function Home() {
         >
           <i>{title}</i> <GiFilmProjector />{" "}
         </h1>
-        <div className={style.cardContainer}>
+        <div className="cardContainer">
           {data?.map((film) => {
             return (
               <div key={film.id}>

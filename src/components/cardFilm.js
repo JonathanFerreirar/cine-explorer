@@ -1,5 +1,4 @@
 import Image from "next/image";
-import style from "@/styles/global.module.css";
 
 import { useRouter } from "next/router";
 
@@ -7,10 +6,10 @@ export const CardFilm = ({ filmName, filmDate, filmRate, filmImg, id }) => {
   const { push } = useRouter();
   return (
     <button
-      className={`buttonCardItem ${style.buttonCardItem}`}
+      className="buttonCardItem"
       style={{
         border: "none",
-        width: "15rem",
+        width: "100%",
         background: "none",
         transitionDuration: "0.3s",
         borderRadius: "20px",
@@ -18,7 +17,7 @@ export const CardFilm = ({ filmName, filmDate, filmRate, filmImg, id }) => {
       onClick={() => push(`/filmdetail/${id}`)}
     >
       <div
-        className={`card ${style.buttonCardDiv}`}
+        className="card buttonCardDiv"
         style={{
           width: "15rem",
           height: "400px",

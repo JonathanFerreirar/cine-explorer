@@ -1,4 +1,5 @@
-import style from "@/styles/global.module.css";
+//import style from "@/styles/global.module.css";
+
 import { useEffect } from "react";
 
 import { useRouter } from "next/router";
@@ -22,7 +23,7 @@ const MoveDetail = () => {
 
   return (
     <div
-      className={`d-flex gap-5 align-items-center align-items-center ${style.filmResponsivines}`}
+      className="d-flex gap-5 align-items-center align-items-center filmResponsivines"
       style={{ width: "100vw", height: "100vh" }}
     >
       <div
@@ -31,16 +32,16 @@ const MoveDetail = () => {
           height: "500px",
           position: "relative",
         }}
-        className={`${style.filmDivImg}`}
+        className="filmDivImg"
       >
         <Image
-          className={`${style.filmImg}`}
+          className="filmImg"
           src={imgURL_2 + film.backdrop_path || imgURL + film.backdrop_path}
           fill
           alt={film.title}
         />
       </div>
-      <div className={`${style.filmText}`}>
+      <div className="filmText">
         <h3 className="">{film.title}</h3>
         <p className="d-flex gap-1">
           01/18/2018 -{" "}
