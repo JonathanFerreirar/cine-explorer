@@ -23,7 +23,8 @@ a {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .filmResponsivines {
-  margin-top: -100px;
+  height: 60vh;
+  margin: auto 0;
   display: flex;
   gap: 25px;
   align-items: center;
@@ -51,6 +52,7 @@ a {
 
 @media (max-width: 750px) {
   .filmResponsivines {
+    height: auto;
     margin-top: 40px !important;
     flex-direction: column !important;
     justify-content: center !important;
