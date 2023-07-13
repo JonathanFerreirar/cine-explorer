@@ -40,6 +40,9 @@ a {
 }
 
 .filmDivImg {
+  width: 60vw;
+  height: 500px;
+  position: relative;
   margin-left: 20px;
 
   @media (max-width: 750px) {

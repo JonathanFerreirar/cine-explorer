@@ -23,14 +23,7 @@ const MoveDetail = () => {
 
   return (
     <div className="filmResponsivines">
-      <div
-        style={{
-          width: "60vw",
-          height: "500px",
-          position: "relative",
-        }}
-        className="filmDivImg"
-      >
+      <div className="filmDivImg">
         <Image
           className="filmImg"
           src={imgURL_2 + film.backdrop_path || imgURL + film.backdrop_path}
