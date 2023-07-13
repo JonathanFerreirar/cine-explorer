@@ -15,12 +15,11 @@ a {
   align-items: center;
   justify-content: center;
   @media (max-width: 750px) {
-    display: block;
-    /* flex-direction: column !important; */
+    flex-direction: column !important;
     margin-top: 40px !important;
 
-    /* justify-content: center !important;
-    align-items: center; */
+    justify-content: center !important;
+    align-items: center;
   }
 }
 
