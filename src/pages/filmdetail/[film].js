@@ -23,7 +23,7 @@ const MoveDetail = () => {
 
   return (
     <div
-      className="d-flex gap-5 align-items-center align-items-center filmResponsivines"
+      className="filmResponsivines"
       style={{ width: "100vw", height: "100vh" }}
     >
       <div
