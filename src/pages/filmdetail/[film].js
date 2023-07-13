@@ -22,10 +22,7 @@ const MoveDetail = () => {
   }
 
   return (
-    <div
-      className="filmResponsivines"
-      style={{ width: "100vw", height: "100vh" }}
-    >
+    <div className="filmResponsivines">
       <div
         style={{
           width: "60vw",
