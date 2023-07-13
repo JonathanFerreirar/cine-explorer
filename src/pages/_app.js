@@ -14,7 +14,3 @@ export default function App({ Component, pageProps }) {
     </>
   );
 }
-
-/*
- título do filme, a data de lançamento e a classificação.
- */

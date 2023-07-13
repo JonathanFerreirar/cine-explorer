@@ -11,8 +11,10 @@
 .buttonCardItem:hover {
   scale: 1.03;
 }
-
-.movelDetailsResponsivines {
+.buttonCardDiv {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.filmResponsivines {
   margin-top: -100px;
   @media (max-width: 750px) {
     margin-top: 40px;
@@ -22,7 +24,7 @@
   }
 }
 
-.movelDetailsResponsivinesDivImg {
+.filmDivImg {
   margin-left: 20px;
 
   @media (max-width: 750px) {
@@ -31,7 +33,7 @@
   }
 }
 
-.movelDetailsResponsivinesImg {
+.filmImg {
   object-fit: cover;
   border-radius: 12px;
 
@@ -42,7 +44,7 @@
   }
 }
 
-.movelDetailsResponsivinesText {
+.filmText {
   text-align: justify;
   width: 90vw;
 

@@ -1,5 +1,6 @@
-import { api, options } from "@/api";
 import { createContext, useCallback, useState } from "react";
+
+import { api, options } from "@/api";
 
 export const filmContext = createContext();
 
@@ -14,10 +15,10 @@ export const ProviderFilm = ({ children }) => {
   const getFilm = useCallback(async () => {
     try {
       if (!searchFilm) {
-        setTitle("POPULARES");
+        setTitle("POPULAR");
         setLoading(false);
         const response = await api.get(
-          "movie/popular?language=en-US&page=1",
+          "movie/popular?language=en-US&page=2",
           options
         );
 
@@ -72,6 +73,7 @@ export const ProviderFilm = ({ children }) => {
       );
       setFilm(response.data);
       setLoading(true);
+      console.log(response.data);
     } catch (error) {
       if (filmID) {
         console.log(error);

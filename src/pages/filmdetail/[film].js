@@ -1,12 +1,15 @@
-import Image from "next/image";
-import style from "@/styles/home.module.css";
+import style from "@/styles/global.module.css";
+import { useEffect } from "react";
 
-import { useContext, useEffect } from "react";
-import { filmContext } from "@/context/film-contexct";
 import { useRouter } from "next/router";
+import Image from "next/image";
+
+import { Loading } from "@/components/loading";
+import { useContextFilm } from "@/hooks/hooks";
+import { imgURL, imgURL_2 } from "@/api";
 
 const MoveDetail = () => {
-  const { film, getFilmByID, loading } = useContext(filmContext);
+  const { film, getFilmByID, loading } = useContextFilm();
   const { query } = useRouter();
 
   useEffect(() => {
@@ -14,18 +17,12 @@ const MoveDetail = () => {
   }, [query, getFilmByID]);
 
   if (!loading) {
-    return (
-      <div className={style.cardContainer}>
-        <div className="spinner-grow text-dark" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
     <div
-      className={`d-flex gap-5 align-items-center align-items-center ${style.movelDetailsResponsivines}`}
+      className={`d-flex gap-5 align-items-center align-items-center ${style.filmResponsivines}`}
       style={{ width: "100vw", height: "100vh" }}
     >
       <div
@@ -34,17 +31,17 @@ const MoveDetail = () => {
           height: "500px",
           position: "relative",
         }}
-        className={`${style.movelDetailsResponsivinesDivImg}`}
+        className={`${style.filmDivImg}`}
       >
         <Image
-          className={`${style.movelDetailsResponsivinesImg}`}
-          src={"https://image.tmdb.org/t/p/w500/" + film.backdrop_path}
+          className={`${style.filmImg}`}
+          src={imgURL_2 + film.backdrop_path || imgURL + film.backdrop_path}
           fill
           alt={film.title}
         />
       </div>
-      <div className={`${style.movelDetailsResponsivinesText}`}>
-        <h5 className="">{film.title}</h5>
+      <div className={`${style.filmText}`}>
+        <h3 className="">{film.title}</h3>
         <p className="d-flex gap-1">
           01/18/2018 -{" "}
           {film.genres?.map((gen) => {
@@ -52,11 +49,14 @@ const MoveDetail = () => {
           })}
         </p>
 
-        <p>Rank: {Number(film.vote_average).toFixed(2)}</p>
+        <h6>Overview</h6>
         <p>{film.overview}</p>
+        <h6>Rank</h6>
+        <p> {Number(film.vote_average).toFixed(2)}</p>
 
         <p style={{ fontSize: "14px" }}>
-          Time: <span>{film.runtime} min</span>
+          <h6>Time</h6>
+          <span>{film.runtime} min</span>
         </p>
       </div>
     </div>
@@ -64,7 +64,3 @@ const MoveDetail = () => {
 };
 
 export default MoveDetail;
-
-// https://api.themoviedb.org/3/movie/{id}
-
-//447365

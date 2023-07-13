@@ -1,7 +1,9 @@
 import { useContext } from "react";
+import { useRouter } from "next/router";
 
 import { filmContext } from "@/context/film-contexct";
-import { useRouter } from "next/router";
+
+import { FaSistrix } from "react-icons/fa";
 
 export const SearchFilm = () => {
   const { searchFilm, setSearchFilm, getSearch } = useContext(filmContext);
@@ -10,6 +12,7 @@ export const SearchFilm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (pathname == `/filmdetail/[film]`) {
+      //If user in this path, i need back to home, after send a seacrh request
       push("/");
 
       setTimeout(() => {
@@ -30,18 +33,22 @@ export const SearchFilm = () => {
       style={{ minWidth: "60vw" }}
     >
       <input
-        className="form-control me-2"
+        className="form-control me-2 text-center"
         type="search"
-        placeholder="Buscar"
+        placeholder="Search"
         aria-label="Search"
         value={searchFilm}
         onChange={(event) => setSearchFilm(event.target.value)}
       />
       <button className="btn btn-outline border" type="submit">
-        buscar
+        <div
+          className="d-flex justify-content-center align-items-center gap-2 "
+          style={{ fontSize: "13px", fontWeight: "300" }}
+        >
+          Search
+          <FaSistrix />
+        </div>
       </button>
     </form>
   );
 };
-
-//Query //https://api.themoviedb.org/3/search/movie?query=naruto&include_adult=false&language=en-US&page=1

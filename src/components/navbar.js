@@ -1,24 +1,15 @@
-import Image from "next/image";
-import React from "react";
-import Link from "next/link";
-import { SearchFilm } from "./searchFilm";
-
 import { useContext } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
+import { SearchFilm } from "./searchFilm";
 import { filmContext } from "@/context/film-contexct";
 
 export const Navbar = () => {
   const { getFilm } = useContext(filmContext);
   return (
     <nav className="navbar navbar-expand-lg bg-light">
-      <div
-        className="container-fluid"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <div className="container-fluid d-flex justify-content-center align-items-center">
         <Link className="navbar-brand" href="/" onClick={getFilm}>
           <div className="d-flex align-items-center align-items-center">
             <Image
@@ -27,7 +18,9 @@ export const Navbar = () => {
               height={50}
               alt="logo Cine Explorere "
             />
-            <p className="m-1">Cine Explore</p>
+            <p className="m-1" style={{ fontSize: "16px", fontWeight: "600" }}>
+              Cine Explore
+            </p>
           </div>
         </Link>
 
