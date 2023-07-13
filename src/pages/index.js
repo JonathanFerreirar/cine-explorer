@@ -6,10 +6,15 @@ import { useContext, useEffect } from "react";
 import { filmContext } from "@/context/film-contexct";
 
 export default function Home() {
-  const { data, getFilm } = useContext(filmContext);
+  const { data, getFilm, loading } = useContext(filmContext);
   useEffect(() => {
     getFilm();
   }, [getFilm]);
+
+  if (!loading) {
+    console.log(loading);
+    return <h1>Loading....</h1>;
+  }
 
   return (
     <>
