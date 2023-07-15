@@ -32,7 +32,7 @@ a {
 }
 
 .filmDivImg {
-  width: 60vw;
+  width: 780px;
   height: 500px;
   position: relative;
   margin-left: 20px;
@@ -60,17 +60,20 @@ a {
   }
 
   .filmImg {
-    width: 90vw !important;
-
+    width: 95vw !important;
+    
+    object-fit: fill;
     margin: 0 auto;
   }
   .filmText {
+    
     margin: 0 auto;
     font-size: 13px;
   }
 
   .filmDivImg {
     width: 100% !important;
+    height: 40vh;
     margin: 0 auto;
   }
 }
